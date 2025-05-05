@@ -46,7 +46,12 @@ by the theme and is not meant to be included directly into a page.
     {%- assign checkout_label = 'cart.general.checkout' | t -%}
 
     {%- render 'button', href: routes.cart_url, secondary: true, content: view_cart_label -%}
-    {%- render 'button', type: 'submit', name: 'checkout', content: checkout_label -%}
+    <button type="button" onclick="yampiClick()" class="button" is="custom-button"><div>Checkout</div><span class="button__loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
   </form>
 </div>
 
