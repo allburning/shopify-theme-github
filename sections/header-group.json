@@ -17,13 +17,21 @@
         "message": {
           "type": "message",
           "settings": {
-            "text": "Frete Grátis Para Todo Brasil",
+            "text": "Enviamos Para Todo Brasil",
+            "url": ""
+          }
+        },
+        "message_GyMJNd": {
+          "type": "message",
+          "settings": {
+            "text": "Em Até 10x Sem Juros",
             "url": ""
           }
         }
       },
       "block_order": [
-        "message"
+        "message",
+        "message_GyMJNd"
       ],
       "settings": {
         "enable_sticky": false,
