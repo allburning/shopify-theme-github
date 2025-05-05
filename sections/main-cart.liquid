@@ -73,12 +73,15 @@
             ----------------------------------------------------------------------------------------------------------------
             {%- endcomment -%}
 
+            {%- comment -%}
             {%- if section.settings.show_shipping_estimator and cart.requires_shipping -%}
               {%- assign accordion_title = 'cart.shipping_estimator.estimate_shipping' | t -%}
               {%- capture accordion_content -%}{%- render 'shipping-estimator' -%}{%- endcapture -%}
 
               {%- render 'accordion', title: accordion_title, icon: 'picto-box', content: accordion_content, size: 'lg' -%}
             {%- endif -%}
+{%- endcomment -%}
+    
           </div>
 
           <safe-sticky class="cart-order__recap v-stack gap-6">
