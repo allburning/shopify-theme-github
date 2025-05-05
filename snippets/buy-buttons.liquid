@@ -65,6 +65,18 @@ Supported variables
     <buy-buttons class="buy-buttons {% if show_payment_button %}buy-buttons--multiple{% endif %}" template="{{ product.template_suffix | escape }}" form="{{ form_id }}">
       {%- render 'button', content: button_content, type: 'submit', size: button_size, disabled: button_disabled, secondary: show_payment_button, subdued: button_disabled, background: atc_button_background, text_color: atc_button_text_color -%}
 
+  {%- if product.selected_or_first_available_variant.available -%}
+  <button
+    type="button"
+    class="button button--{{ button_size }} w-full"
+    style="background: #111; color: #fff;"  {# ajuste cores se quiser #}
+    onclick="buyNowYampi(this)"
+  >
+    Comprar agora
+  </button>
+{%- endif -%}
+
+
       {%- if show_payment_button -%}
         {{- form | payment_button -}}
 
@@ -87,3 +99,22 @@ Supported variables
     </buy-buttons>
   </div>
 {%- endform -%}
+<script>
+  function buyNowYampi(button) {
+    const form = button.closest('form');
+    const formData = new FormData(form);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = 'https://kotama.pay.yampi.com.br/checkout/address';
+      } else {
+        alert('Erro ao adicionar ao carrinho. Tente novamente.');
+      }
+    });
+  }
+</script>
+
