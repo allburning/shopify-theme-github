@@ -110,7 +110,7 @@
                                 getCheckoutBtn = getForm[i].elements['checkout'] || document.querySelector('a[href="/checkout"]') || document.querySelector('form[action="/cart"] input[type="submit"]');
 
                                 if (getCheckoutBtn.length == undefined) {
-                                    var buttonValue = getCheckoutBtn.value ? getCheckoutBtn.value : getCheckoutBtn.textContent;
+                                    var buttonValue = 'Comprar agora';
                                 } else {
                                     var lastBtnID = getCheckoutBtn.length - 1;
                                     var buttonValue = getCheckoutBtn[lastBtnID].value ? getCheckoutBtn[lastBtnID].value : getCheckoutBtn[lastBtnID].textContent;
