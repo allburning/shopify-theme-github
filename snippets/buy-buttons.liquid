@@ -116,5 +116,25 @@ Supported variables
       }
     });
   }
+
+    function yampiClick() {
+
+      showYampiLoader();
+
+      getAjax('/cart.json', function (response) {
+          var cartPayload = JSON.parse(response);
+
+          var data = {
+              shop: window.location.host,
+              cart_payload: cartPayload
+          };
+
+          postAjax(cartEndpoint, JSON.stringify(data), function (response) {
+              var resp = JSON.parse(response);
+
+              window.location.href = ymp_getUrlWithUtms(resp.checkout_direct_url);
+          });
+      });
+    }
 </script>
 
